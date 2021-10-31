@@ -1,0 +1,271 @@
+\documentclass[
+12pt,			     	% tamanho da fonte
+a4paper,                % tamanho do papel
+oneside,                % impressão por pagina
+brazil		          	% idioma principal do documento
+]{configuracoes}		% declaração de classe Gabi
+
+% Pacotes mais comuns utilizados
+\usepackage[brazil]{babel}                              % Palavras em português - auxilia na acentuação
+\usepackage[T1]{fontenc}	                         	% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}	                         	% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}	                        	% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}			                        	% Controle das cores
+\usepackage{graphicx}		                         	% Inclusão de gráficos
+\usepackage{microtype} 		                         	% para melhorias de justificação 
+\usepackage{url}                                        % Para URL, PATH,etc
+\usepackage[alf]{abntex2cite}                          	% Citações padrão ABNT
+\usepackage{verbatim}                                   
+%Tabelas longas
+\usepackage{longtable} 
+% para linhas duplas na tabela
+\usepackage{hhline}
+%Para posição de figuras
+\usepackage{float}
+%Para Apêndices
+\usepackage{appendix}
+%Para incluir arquivos PDF
+\usepackage{pdfpages}
+
+
+\titulo{PROJETO E DESENVOLVIMENTO DE UM SISTEMA DE GESTÃO HOSPITALAR PARA HOSPITAIS PÚBLICOS}
+\autor{Francisco Leandro de Morais Pinto}
+\local{Pau dos Ferros}
+\orientador{Me. Prof. Jeferson Queiroga Pereira}
+\data{2020}
+\instituicao{%
+	Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte -- IFRN
+	}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Trabalho de Conclusão de Curso apresentado ao Curso de Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, em cumprimento às exigências legais como requisito parcial à obtenção do título de Tecnólogo em Análise e Desenvolvimento de Sistemas}
+%% ---
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}
+% compila o indice
+% ---
+\makeindex
+% ---
+% Início do documento
+% ----
+\begin{document}
+% Capa
+% ---
+\imprimircapa
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto
+% ---	
+%\imprimirfichacatalografica		
+%\begin{folhadeaprovacao}
+	
+\begin{folhadeaprovacao}
+	
+	\begin{center}
+		{\imprimirautor}
+		
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+		    \bfseries\imprimirtitulo
+		\end{center}
+		\vspace*{\fill}
+		
+		\hspace{.45\textwidth}
+		\begin{minipage}{.5\textwidth}
+			\imprimirpreambulo
+		\end{minipage}%
+		\vspace*{\fill}
+	\end{center}
+	
+	Trabalho aprovado. \imprimirlocal, 18 de Dezembro de 2020.
+	
+	\assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+	\assinatura{\textbf{Prof. Me. Irlan Arley Targino Moreira} \\ Examinador interno}
+	\assinatura{\textbf{Prof. Me. Ciro Daniel Gurgel de Moura } \\ Examinador interno}
+	\assinatura{\textbf{Me. Francisco Glériston Vieira} \\ Examinador Externo}
+	%\assinatura{\textbf{Professor} \\ Convidado 4}
+	
+	\begin{center}
+		\vspace*{0.5cm}
+		{\large\imprimirlocal}
+		\par
+		{\large\imprimirdata}
+		\vspace*{1cm}
+	\end{center}
+	
+\end{folhadeaprovacao}
+% ---
+	
+	
+%	\begin{center}
+		
+%	Espaço para a folha de Aprovação	
+		
+%	\end{center}
+	
+%\end{folhadeaprovacao}
+	
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+Concluir o Curso Superior de Análise e Desenvolvimento de Sistemas representa para mim um sonho, que prestes a se tornar realidade, só foi possível graças ao cuidado e a ajuda de pessoas especiais as quais expresso a minha gratidão. 
+	
+Agradeço primeiramente a Deus, pela oportunidade de completar mais uma etapa da minha vida profissional e por me dar forças para enfrentar as adversidades.
+
+A todos os professores do Curso de Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte, \textit{Campus} Pau dos Ferros que colaboraram e contribuíram para o meu desenvolvimento e crescimento profissional.
+
+Ao meu orientador, Jeferson Queiroga Pereira, que me ajudou no decorrer desta pesquisa. 
+
+Aos meus pais, Maria Lucia de Morais e Cícero Pinto por nunca medirem esforços e fazerem sempre o possível para nos ver bem.
+
+Às minhas irmãs e ao meu irmão, por sempre me apoiarem e me darem base para que eu pudesse realizar meus sonhos.
+
+À minha esposa, Mariana Rocha, pelo cuidado, zelo, carinho e atenção que foram essenciais e me encorajaram a não desistir.
+
+Aos meus amigos e colegas de turma, em especial Antônio Almeida Rego e Robson Ribeiro da Silva pelo incentivo e pela parceria formada no decorrer do curso.
+
+Enfim, agradeço a todos aqueles que torceram e participaram dessa etapa decisiva e importante na minha vida.
+
+\end{agradecimentos}
+
+\begin{epigrafe}
+	\vspace*{\fill}
+	\begin{flushright}
+		\textit{"O que sabemos é uma gota; o que ignoramos é um oceano."\\Isaac Newton}
+	\end{flushright}
+\end{epigrafe}
+\pagebreak
+
+\setlength{\absparsep}{18pt}
+\begin{resumo}
+
+O Sistema de Informações Ambulatoriais do SUS (SIA/SUS), está entre os Sistemas de Informação em Saúde (SIS) criados pelo Ministério da Saúde que objetivam captar e processar as contas ambulatoriais do serviço público de saúde. A partir de entrevistas e reuniões realizadas com gestores da área verificou-se que o envio de dados para este sistema, realizado pelo preenchimento das guias do Boletim de Produção Ambulatorial (BPA) é lento, pois ocorre manualmente, através da digitação dos procedimentos realizados no ambiente hospitalar no programa BPA-MAGNÉTICO, o que gera em alguns casos a perda da produção devido à grande quantidade de procedimentos a serem digitados e inconsistências no repasse dos dados. Além disso, percebeu-se que os registros do prontuário do paciente feitos à mão são mais suscetíveis a erros ou falhas de interpretação. Com base nas dificuldades apresentadas elaborou-se este trabalho que tem por objetivo projetar e desenvolver um Sistema Web de Gestão Hospitalar capaz de registrar e organizar o fluxo de atendimentos de um hospital público e gerar o arquivo de importação de dados para o SIA/SUS, eliminando o tempo gasto com a digitação mensal dos boletins de produção ambulatorial.  O software realiza o cadastro automático dos profissionais de saúde do estabelecimento e registra os procedimentos feitos nas consultas de acordo com as especificações da Tabela de Procedimentos do SUS. Além disso, é integrado ao serviço web do Sistema de Cadastro de Usuários do SUS permitindo a coleta automática dos dados dos cidadãos.
+    
+	\noindent
+	\textbf{Palavras-chave}: Sistema Web. Gestão Hospitalar. Procedimentos ambulatoriais.
+\end{resumo}
+
+\begin{resumo}[ABSTRACT]
+
+The SUS Outpatient Information System (SUS/OIS) ranks among the Health Information Systems (HIS) created by the Ministry of Health that aims to collect and process outpatient accounts for the public health service. From interviews and meetings held with managers in the area, it was found that the sending of data to this system, carried out by filling out the Outpatient Production Bulletin (OPB) tabs is slow, as it occurs manually, by entering the procedures performed in hospital environment in the BPA-MAGNETIC program, which in some cases causes loss of production due to the large number of procedures to be entered and inconsistencies in the transfer of data. Moreover, it was noticed that the entries of the patients' medical records made in handwritten forms are more susceptible to errors or failure in interpretation. Based on the difficulties presented, this work aims to design and develop a Hospital Management Web System capable of registering and organizing the flow of care from a public hospital and generating the data import file for SUS/OIS, eliminating waste of time on monthly typing of outpatient production bulletins. The software performs the automatic registration of the establishment's health professionals and records the procedures performed in the visits according to the specifications of the SUS Procedures Table. In addition, it is integrated with the SUS User Registration System Web Service, allowing the automatic collection of citizens’ data.
+
+\noindent
+\textbf{Keywords}: Web System. Hospital Management. Outpatient procedures.
+    
+\end{resumo}
+
+\pagebreak
+
+
+
+
+
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% inserir lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+
+% inserir lista de abreviaturas e siglas
+\begin{siglas}
+    \item[SUS] \textit{Sistema Único de Saúde}
+    \item[SADT] \textit{Serviços Auxiliares de Diagnóstico e Tratamento}
+    \item[SIS] \textit{Sistemas de Informação em Saúde}
+    \item[CNS] \textit{Cartão Nacional de Saúde}
+    \item[SIA] \textit{Sistema de Informações Ambulatoriais}
+    \item[BPA] \textit{Boletim de Produção Ambulatorial}
+    \item[SIGTAP] \textit{Sistema de Gerenciamento da Tabela de Procedimentos, Medicamentos e OPM}
+    \item[ERP] \textit{Enterprise Resource Planning}
+    \item[PEP] \textit{Prontuário Eletrônico do Paciente}
+    \item[DATASUS] \textit{Departamento de Informática do SUS}
+    \item[CNES] \textit{Cadastro Nacional de Estabelecimentos de Saúde}
+    \item[CADSUS] \textit{Cadastro Nacional de Usuários do SUS}
+    \item[FPO-MAG] \textit{Ficha de Programação Orçamentária Magnética}
+    \item[APAC] \textit{Autorização para Procedimentos de Alta Complexidade}
+    \item[CBO] \textit{Código Brasileiro de Ocupações}
+    \item[JPA] \textit{Java Persistence API}
+    \item[POJO] \textit{Plain Old Java Objects}
+    \item[SOAP] \textit{Simple Object Access Protocol}
+    \item[IDE] \textit{Integrated Development Environment}
+    \item[CPF] \textit{Cadastro de Pessoas Físicas}
+\end{siglas}
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%	\item[$ \Gamma $] Letra grega Gama
+%	\item[$ \Lambda $] Lambda
+%	\item[$ \zeta $] Letra grega minúscula zeta
+%	\item[$ \in $] Pertence
+%\end{simbolos}
+
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual %inicio da contagem de páginas
+\pagestyle{simple} %contagem de páginas sem cabeçalho
+\aliaspagestyle{chapter}{simple}%numero de pagina com tamanho único
+
+
+
+% Arquivos com os capítulos a ser incluidos (devem ser editados com o texto desejado)
+
+\include{capitulos/capitulo1}
+\include{capitulos/capitulo2}
+\include{capitulos/capitulo3}
+\include{capitulos/capitulo4}
+\include{capitulos/capitulo5}
+\include{capitulos/capitulo6}
+
+% ---
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ---
+\phantompart
+
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+\begin{apendices}
+
+\includepdf[scale=0.75,pages=1,pagecommand=\label{apendice01}\chapter{Diagrama Lógico Banco de Dados}]{apendices/DIAGRAMA-LOGICOBDSGH.pdf}
+
+\includepdf[scale=0.75,pages=1,pagecommand=\label{apendice02}\chapter{Impressão do Receituário}]{apendices/Receituario_SGH.pdf}
+
+\end{apendices}
+
+\begin{anexos}
+\chapter{Layout da interface texto do BPA e do SIA - Layout INTERNO}
+\includepdf[scale=0.95,pages={1-5},landscape]{anexos/Layout_Exportacao_BPA.pdf}
+\end{anexos}
+\printindex
+\end{document}

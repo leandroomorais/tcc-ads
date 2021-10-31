@@ -1,0 +1,285 @@
+\chapter{Fundamentação teórica}
+
+Este capítulo apresenta os principais conceitos e elementos usados para a implementação deste trabalho.
+
+\section{Hospital}
+O hospital é definido como um tipo característico de estabelecimento de saúde que possui importante relevância social, por oferecer atividades de diagnóstico e tratamento de pessoas acometidas por doenças. O Ministério da Saúde estabelece que o hospital é:
+\begin{citacao}
+Parte integrante de uma organização médica e social, cuja função básica consiste em proporcionar à população assistência médica integral, curativa e preventiva, sob quaisquer regimes de atendimento, inclusive o domiciliar, constituindo-se também em centro de educação, capacitação de recursos humanos e de pesquisas em saúde, bem como encaminhamento de pacientes, cabendo-lhe supervisionar e orientar os estabelecimentos de saúde a ele vinculados tecnicamente.\cite[p.09]{portaria30/1977}
+\end{citacao}
+
+No Brasil, um dos aspectos usados na classificação hospitalar é o porte que segundo  \citeonline{braganeto} pode ser de:
+	
+\begin{itemize}
+    \item pequeno porte: é o hospital cuja capacidade de operação contempla até 50 leitos;
+	
+    \item médio porte: é o hospital cuja capacidade de operação contempla de 51 a 150 leitos;
+
+    \item grande porte: é o hospital cuja capacidade de operação contempla de 151 a 500 leitos;
+
+    \item capacidade extra: é o hospital cuja capacidade contempla acima de 500 leitos.
+\end{itemize}
+
+No tocante aos produtos e serviços oferecidos pelos hospitais são identificados quatro grupos básicos, sendo esses o atendimento médico ambulatorial, que tem por principal característica as consultas médicas, os serviços auxiliares de diagnóstico e tratamento (SADT), caracterizados pelos exames complementares, os procedimentos cirúrgicos ou obstétricos e as internações hospitalares. \cite{castro}
+
+\subsection{\textbf{Recepção, Acolhimento e Classificação de Risco}}
+
+Com o aumento da superlotação de pacientes nos serviços dos hospitais públicos brasileiros, criou-se a necessidade de implementar processos de triagem para a minimização dos problemas e a adequação dos atendimentos para pacientes que necessitam de maior urgência \cite{albino}.
+
+Ao dar entrada no estabelecimento e ao serem colhidos os dados iniciais na recepção, o paciente é dirigido a sala da triagem, que tem por objetivo identificar usuários que necessitam de um atendimento mais rápido e aqueles que podem aguardar mais tempo em segurança. \cite{albino}. Esse procedimento é sempre realizado por enfermeiros que avaliam a situação do cidadão através da medição dos seus sinais vitais e anamnese inicial. 
+Nesta etapa também é realizada a classificação de risco, proposta pelo Ministério da Saúde através da política nacional de atenção às urgências, com base na Portaria GM/MS nº 2048/2002 que versa sobre o acolhimento e a triagem classificatória de risco e estabelece que esse processo:
+
+\begin{citacao}
+Deve ser realizado por profissional de saúde, de nível superior, mediante treinamento específico e utilização de protocolos pré-estabelecidos e tem por objetivo avaliar o grau de urgência das queixas dos pacientes, colocando-os em ordem de prioridade para o atendimento. \cite[p. 65]{politicaurgencias}
+\end{citacao}
+
+Os protocolos de classificação de risco são ferramentas que sistematizam a avaliação dos pacientes baseando-se em consensos científicos estabelecidos pela literatura médica. Deste modo ``a classificação de risco é um processo dinâmico de identificação dos pacientes que necessitam de tratamento imediato, de acordo com o potencial de risco, agravos à saúde ou grau de sofrimento'' \cite[p. 20]{humanizasus}.
+
+Neste sentido, um dos protocolos adotados, o protocolo de Manchester, estabelece a classificação de risco em níveis determinados por cores, definindo claramente tempos de espera limite para o atendimento médico conforme mostrado a seguir:
+\begin{itemize}
+    \item Nível 1 – Manchester Vermelho (Risco Imediato à Vida): Avaliação médica imediata;
+    
+    \item Nível 2 – Manchester Laranja (Muito Urgente): Avaliação médica em até 10 minutos;
+    
+    \item Nível 3 – Manchester Amarelo (Urgente): Avaliação médica em até 30 minutos;
+    
+    \item Nível 4 – Manchester Verde (Pouco Urgente): Avaliação médica em até 60 minutos;
+    
+    \item Nível 5 – Manchester Azul (Não urgente): Avaliação médica em até 120 minutos. \cite[]{acolhimento}.
+\end{itemize}
+    
+Percebe-se a partir do que foi exposto que a classificação de risco é um instrumento que busca, de forma justa e com base científica, organizar o fluxo de atendimento dos pacientes de acordo com as suas necessidades, evitando desorganização e injustiças. 
+
+\section{SISTEMAS ERP APLICADOS AOS HOSPITAIS}
+
+Os sistemas ERP (\textit{Enterprise Resource Planning}), também conhecidos como Sistemas Integrados de Gestão surgiram em um cenário onde as ferramentas advindas com a informatização tornaram-se essenciais na automatização de processos e na tomada de decisões de uma organização.
+
+\citeonline{souza} definem o ERP como sistemas de informação integrados, adquiridos na forma de pacotes comerciais que permitem a integração graças ao compartilhamento de informações comuns entre os diversos módulos, armazenadas em um único banco de dados centralizado. Neste mesmo sentido, \citeonline[p. 389]{martinselaugeni} conceituam ERP como ``um software que integra todas as diferentes funções de uma empresa e que apresenta uma base de dados que opera em uma única plataforma consolidando toda a operação do negócio em um único ambiente computacional''.
+
+Assim sendo, uma característica comum entre os sistemas ERP se refere a base de dados centralizada, esta confere a esses tipos de software que um mesmo dado seja compartilhado de forma única por toda organização, resolvendo problemas de inconsistência de informações, retrabalho e duplicidade e aferindo confiabilidade aos relatórios emitidos, principalmente por se tratar de um banco de dados corporativo. 
+
+No que se refere ao uso de sistemas ERP nos ambientes hospitalares, vemos que diante da complexidade e das especificidades destes estabelecimentos, estes são bons aliados no auxílio da gestão e na integração entre os seus setores e procedimentos clínicos. Nessa perspectiva, \citeonline[p.234]{nunes} nos apresenta que:
+
+\begin{citacao}
+O ERP Hospitalar guia os usuários para execução de processos dentro das questões legais determinadas pelo Ministério da Saúde e pela ANS (Agência Nacional de Saúde). Tal sistema controla processos especialistas e críticos como prescrição médica e controle dos atendimentos aos pacientes, entre muitos processos específicos da área hospitalar, executando rotinas automáticas e integradas baseadas em regras de negócios.
+\end{citacao}
+
+O Sistema ERP a ser implantado em hospitais deve possuir características específicas, pois suas regras de negócio devem estar de acordo com princípios éticos e legais, inclusive no que se refere a privacidade das informações dos pacientes, pois apenas uma informação sobre uma única pessoa fornecida de maneira incorreta ou inadequada, pode ocasionar grande estrago, transtornos que invadem a esfera individual e coletiva \cite{conass}.
+
+Em ambientes hospitalares é bem comum a incorporação ao sistema integrado do Prontuário Eletrônico do Paciente (PEP), onde nele deve-se conter todos os atendimentos e internações, propiciando o acompanhamento de cada evento com uma visão detalhada da história e da evolução clínica do paciente \cite{baptista}.
+
+Um outro ponto fundamental nos Sistemas ERP aplicados ao setor hospitalar é que ele seja capaz de se integrar aos SIS desenvolvidos pelo SUS, pois a integração entre sistemas é fundamental para a boa gestão das organizações e dos serviços de saúde. 
+
+\section{SISTEMAS DE INFORMAÇÃO EM SAÚDE DO SUS}
+
+Os Sistemas de Informação em Saúde referem-se a ``um conjunto de componentes que atuam de forma integrada, por meio de mecanismos de coleta, processamento, análise e transmissão da informação necessária e oportuna para implementar processos de decisões no SUS''. \cite[p. 12]{garcia}. Estes sistemas instrumentalizam a gestão do SUS em todas as esferas, oferecendo informações primordiais para o planejamento, regulação, controle, avaliação e auditoria das ações em saúde.
+
+A seguir serão apresentados alguns dos SIS disponibilizados pelo Departamento de Informática dos SUS (DATASUS) que se integrarão a proposta do trabalho e suas respectivas definições.
+
+\subsection{\textbf{Cadastro Nacional de Estabelecimentos de Saúde (CNES)}}
+
+Instituído pela Portaria nº 376, de 03 de outubro de 2000, do Ministério da Saúde, o CNES configura-se como a base para a operacionalização dos SIS. Refere-se a um cadastro, obrigatório para todos os estabelecimentos de saúde do país, de natureza pública ou privada, que possuam ou não convênio com o SUS.
+
+Esse cadastro, conforme demonstra \citeonline[p. 25]{garcia} ``registra as características dos estabelecimentos, tais como tipo, leitos, serviços e equipamentos''. Quando cadastrado, o Ministério da Saúde disponibiliza um código numérico único para cada estabelecimento, onde os gestores destes, podem realizar alterações dos seus dados mediante solicitação ou até mesmo excluí-lo da base de dados. Nesta base também são vinculados todos os profissionais que fazem parte da instituição.
+
+Dessa forma, o CNES torna-se útil no controle e mapeamento das características físicas e de recursos humanos dos estabelecimentos de saúde públicos e privados do país, sendo atualizado mensalmente, conforme a demanda.
+
+Para o desenvolvimento de sistemas voltados a área da saúde, tais como o aqui discutido, a utilização do cadastro é fundamental, uma vez que a partir do código único de cada estabelecimento pode se recuperar, através do consumo do web service disponibilizado pelo DATASUS ou pela leitura do arquivo do tipo XML gerado pelo sistema do CNES, as informações sobre as unidades bem como a lista com os dados dos profissionais que ali estão alocados.
+
+\subsection{\textbf{Cadastro Nacional de Usuários do SUS (CADSUS) e Cartão Nacional de Saúde (CNS)}}
+
+
+O Sistema de Cadastramento de Usuários do SUS tem como principal objetivo registrar através de um banco de dados as principais informações sobre os indivíduos.  Essa base contempla a geração do Cartão Nacional de Saúde, o qual atribui um número identificador único para cada cidadão usuário e se configura como o documento de identificação oficial para uso dos serviços de saúde no país, facilitando a gestão destes e contribuindo para o aumento da eficiência no atendimento.
+
+Segundo \citeonline[p. 870]{cunha}, o CNS ``foi concebido como um sistema de informação que utiliza a informática e as telecomunicações com o propósito de identificar os usuários do SUS, integrar informações e construir a base de dados de atendimentos em saúde''. O autor ainda enfatiza que o objetivo do cadastramento é ``gerar um número nacional de identificação, mas vinculado ao município de residência do cidadão. Este número é impresso no cartão do usuário e permite sua identificação sempre que buscar serviços no SUS''.
+
+Para facilitar o acesso e o desenvolvimento de sistemas integrados a proposta do CNS, o DATASUS disponibiliza uma ferramenta de integração denominada Barramento do CNS. Através deste espaço, desenvolvedores de software e instituições podem ter acesso aos dados demográficos de todos os usuários cadastrados no CADSUS, tendo a sua versão de acesso público, usada para testes e ajustes, e que possui dados fictícios e a versão de produção que é liberada mediante solicitação formal dos gestores de saúde.
+
+A figura \ref{fig:ArquiteturaSOASUS} abaixo mostra a arquitetura do Barramento do CNS:
+
+\begin{figure}[H]
+    \centering
+     \caption{Arquitetura do Barramento CNS}
+    \includegraphics[scale=0.4]{img/capitulo2/fig:ArquiteturaSOASUS.jpg}
+    \legend{Fonte: Datasus, 2020}
+    \label{fig:ArquiteturaSOASUS}
+\end{figure}
+
+Como é possível observar na figura \ref{fig:ArquiteturaSOASUS}, a camada de banco de dados do Cartão Nacional de Saúde guarda os registros dos usuários e  com o intuito de atender a capilaridade dos diferentes tipos de serviços, os disponibiliza através do Barramento SOA/SUS para a camada de aplicação onde se encontram os sistemas que fazem uso dessas informações. A vantagem deste tipo de arquitetura é a interoperabilidade entre as aplicações que ocorre independentemente das tecnologias usadas no desenvolvimento de softwares que compõem a camada de aplicação. 
+
+
+
+
+\subsection{\textbf{Sistema de Informações Ambulatoriais do SUS (SIA)}}
+
+O Sistema de Informações Ambulatoriais é responsável pela captação e processamento das contas ambulatoriais do SUS, que representam mais de 200 milhões de atendimentos mensais \cite{garcia}.
+
+Este, foi implantando nacionalmente na década de noventa, visando o registro dos atendimentos realizados no âmbito ambulatorial por meio do Boletim de Produção Ambulatorial (BPA) e vem sendo aperfeiçoado para que possa auxiliar gestores nos processos de planejamento, programação, regulação e avaliação e controle dos serviços de saúde \cite{manualsiasus}.
+
+O BPA é somente uma das entradas que fazem parte dos dados de processamento do SIA. Outros instrumentos como o Sistema de Gerenciamento da Tabela de Procedimentos, Medicamentos e OPM do SUS (SIGTAP), o CNES, a Ficha de Programação Orçamentária Magnética (FPO-MAG) e a Autorização para Procedimentos de Alta Complexidade (APAC) fazem parte dessa lista \cite{manualsiasus}. Observando o escopo deste projeto e tendo em vista que a proposta visa atender a demanda de atendimentos ambulatoriais de um hospital público, será dado enfoque somente ao CNES, já descrito anteriormente, ao BPA e ao SIGTAP.
+
+Para colher os dados das produções ambulatoriais, o Ministério da Saúde institui o BPA-MAGNÉTICO, também conhecido por BPA-MAG. Este aplicativo recebe a digitação da produção ambulatorial sob duas formas de captação: 
+
+\begin{citacao}
+BPA consolidado (BPA-C): aplicativo no qual se registram os procedimentos realizados pelos prestadores de serviços do SUS, no âmbito ambulatorial de forma agregada.
+
+BPA individualizado (BPA-I): aplicativo no qual se registram os procedimentos realizados pelos prestadores de serviços do SUS, no âmbito ambulatorial de forma individualizada. Nesse aplicativo foram incluídos os campos: Cartão Nacional do Profissional, CBO 2002, Cartão Nacional de Saúde (CNS) do Usuário com sua Data de Nascimento e Município de Residência, visando à identificação dos usuários e seus respectivos tratamentos realizados em regime ambulatorial \cite[p. 09]{manualsiasus}
+
+\end{citacao}
+
+A figura \ref{fig:BpaMagCONSOLIDADO} apresenta a captura de tela do software BPA-MAGNÉTICO contendo o formulário para digitação dos procedimentos do BPA consolidado.
+
+\begin{figure}[H]
+    \centering
+     \caption{Captura de Tela do BPA-MAGNÉTICO - Formulário de digitação do BPA Consolidado}
+    \includegraphics[scale=0.5]{img/capitulo2/fig:BpaMagCONSOLIDADO.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:BpaMagCONSOLIDADO}
+\end{figure}
+
+Conforme visto na figura \ref{fig:BpaMagCONSOLIDADO}, neste instrumento de coleta o operador necessita inserir em cada uma das linhas do formulário o código do procedimento ambulatorial realizado, o Código Brasileiro de Ocupação (CBO) do profissional que o executou, a idade e a quantidade de procedimentos realizados durante o período informado. 
+
+No formulário de digitação dos procedimentos do BPA Individualizado é exigido um número maior de informações, tais como número do CNS, nome, sexo, endereço, entre outros dados do paciente e do profissional que realiza o atendimento. É o que mostra a figura \ref{fig:BpaMagINDIVIDUALIZADO}.   
+\begin{figure}[H]
+    \centering
+     \caption{Captura de Tela do BPA-MAGNÉTICO - Formulário de digitação do BPA Individualizado}
+    \includegraphics[scale=0.40]{img/capitulo2/fig:BpaMagINDIVIDUALIZADO.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:BpaMagINDIVIDUALIZADO}
+\end{figure}
+
+Ao término da digitação do BPA no aplicativo BPA-MAG é gerado um arquivo para importação dos dados de produção ao SIA e este, por sua vez, faz a ``consolidação e valida o pagamento contra parâmetros orçamentários estipulados pelo próprio gestor de saúde'' \cite[p. 01]{datasus}.
+
+Uma outra ferramenta usada no processamento dos dados no SIA é o SIGTAP, este sistema gerencia uma tabela que contém o conjunto de procedimentos, atributos, regras e valores que permitem o processamento da produção ambulatorial e possui atualização mensal \cite{manualsiasus}. Cada procedimento na tabela do SIGTAP é identificado por um código numérico de 10 dígitos e possui um conjunto de atributos que podem estar relacionados ao próprio procedimento, ao estabelecimento de saúde, ao usuário, ao tipo de financiamento, ao profissional de saúde e até mesmo ao valor deste.
+
+Na prática, o SIGTAP especifica os procedimentos ofertados pela rede pública de saúde e os seus valores de referência, devendo o estabelecimento hospitalar informar a produção mensal com os procedimentos realizados pelos profissionais da unidade e a partir desses, alimentar os SIS com o objetivo de fornecer parâmetros para o financiamento e o repasse de recursos.
+
+Logo, o SIGTAP e o BPA constituem-se como ferramentas fundamentais para a operacionalização do SIA e do próprio SUS, em razão de permitirem aos gestores a padronização das operações e o melhor gerenciamento das produções ambulatoriais.
+
+\section{Desenvolvimento Ágil de Software}
+O conceito de desenvolvimento ágil surgiu no contexto da alta demanda de implementação de softwares que exigem mudanças rápidas e menor tempo de desenvolvimento e ganhou força a partir do documento assinado em 2001 por Kent Beck e outros dezesseis renomados desenvolvedores, chamado de ``Manifesto para o Desenvolvimento Ágil de \textit{Software}''. \cite{pressman2011engenharia}.
+
+Segundo a visão de \citeonline[p.53]{SOMMERVILE} ``os métodos ágeis são métodos de desenvolvimento incremental em que os incrementos são pequenos e, normalmente, as novas versões do sistema são criadas e disponibilizadas aos clientes a cada duas ou três semanas''.  Acrescenta ainda que essas metodologias ``envolvem o cliente no processo de desenvolvimento para obter \textit{feedback} rápido sobre a evolução dos requisitos'' podendo a partir disso diminuir a documentação.
+
+Para \citeonline{pressman2011engenharia} esse tipo de abordagem concebe uma alternativa a engenharia de software tradicional se mostrando capaz de entregar sistemas de qualidade em menor período de tempo, porém complementa que mesmo oferencendo importantes benefícios não é indicado para todos os projetos ou situações.
+
+\subsection{\textit{Scrum}}
+De acordo com \citeonline[p.95]{pressman2011engenharia} o \textit{Scrum} ``é um método de desenvolvimento ágil concebido por Jeff Sutherland e sua equipe de desenvolvimento no início dos anos 1990''. Os princípios dessa metodologia ainda segundo a visão do autor ``são usados para orientar
+as atividades de desenvolvimento dentro de um processo que incorpora as seguintes atividades
+estruturais: requisitos, análise, projeto, evolução e entrega''. A figura \ref{fig:FluxoProcessoScrum} abaixo, apresenta o fluxo do processo \textit{Scrum}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Fluxo do Processo \textit{Scrum}}
+    \includegraphics[scale=0.4]{img/capitulo2/fig:FluxoProcessoScrum.jpg}
+    \legend{Fonte: \citeonline{pressman2011engenharia}}
+    \label{fig:FluxoProcessoScrum}
+\end{figure}
+
+
+Conforme apresentado na figura \ref{fig:FluxoProcessoScrum}, o ponto de partida do \textit{Scrum} é o \textit{Backlog} do produto que representa o armazenamento e gerenciamento dos requisitos coletados, através de uma lista de funcionalidades organizadas pelo \textit{Product Owner} – membro do time que representa o cliente - de acordo com a prioridade. A principal atividade dessa metodologia é a \textit{Sprint} que consiste na determinação de um período no qual são implementadas as funcionalidades definidas no \textit{Backlog} do produto e duram tipicamente 30 dias.\cite{pressman2011engenharia}
+
+Durante a realização das \textit{Sprints} ocorrem diariamente as reuniões \textit{Scrum} que se caracterizam por serem rápidas, de aproximadamente 15 minutos, onde todos devem responder a três perguntas-chave:
+
+\begin{itemize}
+    \item O que você realizou desde a última reunião de equipe?
+    \item Quais obstáculos está encontrando?
+    \item O que planeja realizar até a próxima reunião da equipe? \cite{pressman2011engenharia}
+\end{itemize} 
+
+\citeonline{SOMMERVILE} complementa que as reuniões \textit{Scrum} são organizadas pelo \textit{Scrum Master} - membro que tem o papel de proteger a equipe de distrações externas, mas enfatiza que este é na verdade um facilitador, dado que a ideia do \textit{Scrum} é que toda a equipe deve ter poderes para tomar decisões.
+
+
+\section{FERRAMENTAS E TECNOLOGIAS UTILIZADAS}
+Esta seção apresenta as principais ferramentas e tecnologias usadas no desenvolvimento do Sistema de Gestão Hospitalar.
+
+\subsection{\textbf{Linguagem de Programação Java}}
+
+O Java foi idealizado na década de 1990 pela \textit{Sun Microsystems}, quando essa organização encontrou a necessidade de criar uma linguagem de programação que se adequasse a eletrônicos embarcados. Porém, após o seu lançamento, parte dos eletrônicos que utilizavam a tecnologia não foi comercializada, fazendo com que, a partir de 1993, quando a internet se tornou bastante usada, a \textit{Sun Microsystems} identificasse o potencial do Java para o desenvolvimento \textit{Web}, lançando sua plataforma de desenvolvimento em 1995. \cite{deitel}.
+
+Uma das principais características dessa linguagem é o fato dela ser Orientada a Objetos, o paradigma de programação mais utilizado no mundo, que permite a criação de classes que representam objetos, estando também nesse rol a vantagem de ser uma linguagem simples e familiar, pronta para redes e segura \cite{claro}.
+
+\citeonline{barnesKolling} consideram a Linguagem Java popular no meio acadêmico por fornecer uma implementação limpa da maioria dos conceitos de orientação a objetos e por ser importante no meio comercial. Esse pensamento ainda prevalece, pois segundo dados do Índice TIOBE, um indicador da popularidade das linguagens de programação atualizado mensalmente, o Java no mês de outubro de 2019 ainda prevalecia ocupando a primeira posição do ranking das linguagens mais populares entre os desenvolvedores.  
+
+Logo, a popularidade e as características apresentadas fazem do Java uma boa escolha para o Desenvolvimento do Sistema de Gestão Hospitalar.
+
+\subsection{\textbf{\textit{Spring Framework}}}
+
+O \textit{Spring} é um \textit{framework} de código aberto e sua idealização se iniciou em 2002 através da publicação do Livro \textit{Expert One-To-One J2EE Design and Development} de Rod Johnson. É considerado ``um marco na história do desenvolvimento de aplicações corporativas baseadas na plataforma Java EE por apresentar uma crítica bastante convincente ao padrão de desenvolvimento empurrado pela \textit{Sun Microsystems} para implementação da lógica de negócios''. \cite[p. 16]{weissmann}.
+
+O \textit{framework} oferece um modelo  amplo de configuração e programação baseado na linguagem Java e focado na implementação de aplicativos empresariais modernos e serve de base para os demais projetos do ecossistema \textit{Spring}, que cobre diversas áreas como desenvolvimento \textit{web}, acesso a banco de dados, segurança, computação em nuvem, \textit{Big Data} dentre outros \cite{afonso}.
+
+Nos subtópicos seguintes serão apresentados de forma resumida as definições dos módulos do \textit{Spring} usados neste trabalho.
+
+\subsubsection{\textit{Spring MVC}}
+ O \textit{Spring MVC} auxilia no desenvolvimento de aplicações web flexíveis e robustas. Este \textit{framework} é baseado no padrão de projeto MVC (Modelo-Visão-Controlador), possuindo funcionalidades para as requisições \textit{HTTP}, processamento de dados e retorno de respostas. \cite{afonso}.
+ 
+ De maneira mais clara, a abordagem MVC, conforme apresenta \citeonline[p.20]{gamma2009padroes} ``é composta por três tipos de objetos. O Modelo é o objeto de aplicação, a Visão é a apresentação na tela e o Controlador é o que define a maneira como a interface do usuário reage às entradas do mesmo''.
+ 
+ Ao separar os objetos em camadas, esse tipo de padrão aumenta a flexibilidade no desenvolvimento e possibilita a reutilização de código.
+ 
+ \subsubsection{\textit{Spring Boot}}
+
+O \textit{Spring Boot} é desenhado para simplificar o desenvolvimento de aplicações. Conceitos importantes foram utilizados para a concepção dessa ferramenta, como a configuração automática do \textit{Spring}, a injeção automática de dependências e um interpretador de linha de comandos. \cite{gutierrez}.
+
+Dessa forma, o \textit{Spring Boot} fornece uma experiência de introdução mais rápida e amplamente acessível para todo o desenvolvimento de aplicativos com uso do \textit{Spring} e fornece uma variedade de recursos funcionais comuns a grandes projetos e com nenhuma, ou pouca geração de códigos ou requisitos para configurações.
+
+\subsubsection{\textit{Spring Security}}
+
+O \textit{Spring Security} é o \textit{framework} responsável por disponibilizar autenticação e autorização para aplicações Java. O foco desta ferramenta é tornar a configuração das rotinas de segurança do programa simples e, a partir de poucos ajustes, proteger as requisições \textit{web} de acordo com as permissões concedidas a cada usuário. \cite{afonso}.
+
+\subsection{\textbf{\textit{Java Persistence API} (JPA)}}
+
+A JPA pode ser entendida como uma especificação padrão para o gerenciamento da persistência e mapeamento objeto relacional \cite{castilho}. Este padrão tem por objetivo simplificar o processo de persistência das entidades nos bancos de dados relacionais fornecendo meios de mapeamento dos objetos.
+
+Uma das vantagens de se utilizar a tecnologia JPA é o fato das consultas ou operações de registro serem realizadas de forma independente do banco de dados que se utiliza, o que gera poucos custos ou impactos quando ocorre a mudança deste.
+
+Nesse \textit{framework}, conforme nos diz \citeonline[p. 16]{andrade}, ``os objetos são POJO (\textit{Plain Old Java Objects}), ou seja, não é necessário nada de especial para tornar os objetos persistentes. Basta adicionar algumas anotações nas classes que representam as entidades do sistema e começar a persistir ou consultar objetos''.
+
+Dessa forma, torna-se fácil, com o uso do JPA, realizar persistências ou consultas ao Banco de Dados uma vez que a própria API realiza esses procedimentos de forma automática realizando até mesmo os relacionamentos entre as entidades somente com o uso de anotações.
+
+\subsection{\textbf{Sistemas Distribuídos}}
+
+Conforme a visão de \citeonline[p.16]{coulouris2013sistemas}, um sistema distribuido é aquele no ``qual os componentes de hardware ou software, localizados em computadores interligados em rede, se comunicam e coordenam suas ações apenas enviando mensagens entre si''.
+
+Atualmente, muitos sistemas fazem uso desse conceito pois ele permite o reúso de código, ampliando as possiblidades de integração entre sistemas e consequentemente o compartilhamento de dados através dos Serviços \textit{Web}.
+
+\subsection{Serviços \textit{Web} e SOAP}
+
+Os Serviços \textit{Web} ou \textit{Web Services}, são utilizados na comunicação e integração entre diferentes sistemas. A partir deles, as aplicações enviam e recebem diferentes tipos de dados independentemente da plataforma ou tecnologia que foi utilizada para desenvolvê-las. 
+
+Segundo \citeonline[p. 24]{tamae}, os Serviços \textit{Web} ``são conjuntos de aplicações auto descritivas que podem ser publicadas, localizadas e invocadas através da \textit{web}''. Ainda conforme o autor, uma vez ``que um \textit{Web Service} é publicado, outras aplicações (ou outros \textit{Web Services}) podem acessá-lo e invocá-lo, tanto para a obtenção de dados como interação com serviços que uma organização oferece''.
+
+O SOAP, sigla para \textit{Simple Object Access Protocol}, ou Protocolo Simples de Acesso a Objetos, é um dos protocolos da arquitetura de Serviços \textit{Web} que permite a conexão entre os aplicativos. Esta tecnologia é usada na troca de informações em ambientes computacionais distribuídos e descentralizados e é feita por meio de mensagens enviadas por arquivos no formato XML. \cite{martins}. A figura \ref{fig:FuncionamentoSOAP} apresenta o esquema de funcionamento de um \textit{Web Service} SOAP:
+
+\begin{figure}[H]
+    \centering
+     \caption{Esquema de Funcionamento do SOAP}
+    \includegraphics[scale=0.5]{img/capitulo2/fig:FuncionamentoSOAP.jpg}
+    \legend{Fonte: Scopel, 2006}
+    \label{fig:FuncionamentoSOAP}
+\end{figure}
+
+Conforme apresentado na figura \ref{fig:FuncionamentoSOAP}, a aplicação envia uma requisição ao processador SOAP (passo 1) que transmite a requisição pela rede, esta por sua vez é recebida pela segunda aplicação (passo 2) que envia a resposta da informação solicitada ao controlador SOAP (passo 3) enviando-a a aplicação requisitante (passo 4).
+
+O Barramento do CNS, já definido anteriormente, utiliza o padrão SOAP para o envio das informações requisitadas. A figura \ref{fig:RespostaXML-CNS} mostra o exemplo de um arquivo XML enviado por esse serviço, contendo as informações de um cidadão cadastrado no ambiente de homologação.
+
+\begin{figure}[H]Web Services
+    \centering
+     \caption{Arquivo XML enviado pelo Barramento do CNS}
+    \includegraphics[scale=0.55]{img/capitulo2/fig:RespostaXML-CNS.png}
+    \legend{Fonte: Elaborado pelo autor, 2020.}
+    \label{fig:RespostaXML-CNS}
+\end{figure}
+
+O XML exposto na figura \ref{fig:RespostaXML-CNS} contém o número do CNS, nome completo, data de nascimento, nome da mãe e do pai, sexo dentre outras informações. Dessa forma, através do compartilhamento de diferentes dados os \textit{Web Services} promovem a comunicação entre sistemas. 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,378 @@
+\chapter{Resultados}
+
+A utilização das ferramentas, tecnologias e os métodos definidos no escopo deste trabalho permitiram a construção do Sistema de Gestão Hospitalar que será apresentado neste capítulo através de capturas de tela e explicações do seu funcionamento.
+
+\section{Página de Autenticação e página inicial}
+
+Ao acessar o SGH através do navegador de internet, o usuário é direcionado a página de autenticação que tem como função garantir a segurança do sistema, concedendo permissão para o seu uso somente a pessoas autorizadas. A figura \ref{fig:Captura-PaginaDeAutenticacao} mostra a página de autenticação do SGH.
+
+\begin{figure}[H]
+    \centering
+     \caption{Página de Autenticação do SGH}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-PaginaDeAutenticacao.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-PaginaDeAutenticacao}
+\end{figure}
+
+As regras de negócio para a autenticação e autorização para o uso do sistema ficam a cargo do \textit{Framework Spring Security} já definido anteriormente. Caso obtenha permissão de acesso ao preencher os campos CPF e Senha, mostrados na figura \ref{fig:Captura-PaginaDeAutenticacao}, o usuário será direcionado a página inicial onde poderá optar pelo módulo ao qual deseja fazer uso. A página inicial é exibida na figura \ref{fig:Captura-PaginaInicial}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Página Inicial do SGH}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-PaginaInicial.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-PaginaInicial}
+\end{figure}
+
+Na captura de tela exposta na figura \ref{fig:Captura-PaginaInicial} é demonstrado o caso em que o usuário possui acesso somente ao módulo de atendimento médico. Os níveis de permissão para cada profissional são definidos pelo sistema a partir do Código Brasileiro de Ocupações (CBO), que define as funções e atribuições de cada servidor. 
+
+\section{Módulo da Recepção}
+
+O Módulo da Recepção provê ao Sistema de Gestão Hospitalar um espaço onde o funcionário responsável pelo primeiro contato com o cidadão pode colher seus dados e encaminhá-lo para a fila de atendimentos conforme o tipo de serviço solicitado. A figura \ref{fig:Captura-PaginaPrincipalModuloDaRecepcao} mostra a página principal do Módulo da Recepção.
+
+\begin{figure}[H]
+    \centering
+     \caption{Página principal do Módulo da Recepção}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-PaginaPrincipalModuloDaRecepcao.png}
+    \legend{Fonte: Elaborado pelo autor, 2019}
+    \label{fig:Captura-PaginaPrincipalModuloDaRecepcao}
+\end{figure}
+
+De acordo com o que foi mostrado na figura \ref{fig:Captura-PaginaPrincipalModuloDaRecepcao}, ao abrir o Módulo da Recepção a primeira tela exibida para o usuário contém um formulário para pesquisa de dados do cidadão. Ao selecionar e preencher um dos parâmetros de consulta, CPF ou CNS, e ao clicar no botão pesquisar o SGH realiza inicialmente uma busca de dados no banco de dados local. Caso não encontre nenhum cidadão com os parâmetros informados a busca é direcionada ao serviço \textit{web} do CADSUS e no caso de sucesso são apresentadas as informações do cidadão solicitado, conforme mostrado nas figuras \ref{fig:Captura-DadosCidadao01} e \ref{fig:Captura-DadosCidadao02}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Informações do Cidadão obtidas a partir de busca no CADSUS}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-DadosCidadao01.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-DadosCidadao01}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+     \caption{Informações do Cidadão obtidas a partir de busca no CADSUS}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-DadosCidadao02.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-DadosCidadao02}
+\end{figure}
+
+Com as informações do cidadão em tela, o recepcionista poderá fazer uma inspeção dos dados vindos do serviço web ou do banco de dados local, corrigir o que for necessário e adicionar o cidadão a fila de atendimento através no botão adicionar, exibido na figura \ref{fig:Captura-DadosCidadao02}.
+
+Em seguida, o cidadão poderá ser encaminhado através da seção encaminhamento interno para o serviço e o profissional solicitado, conforme observado na figura \ref{fig:Captura-EncaminhamentoInterno}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Encaminhamento Interno}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-EncaminhamentoInterno.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-EncaminhamentoInterno}
+\end{figure}
+
+No módulo da recepção é permitido ainda a visualização da fila de atendimento, que se destina a exibir os cidadãos que ainda aguardam algum tipo de serviço, conforme mostrado na figura \ref{fig:Captura-FilaAtendimentoRecepcao}.
+
+
+\begin{figure}[H]
+    \centering
+     \caption{Fila de Atedimento - Módulo da Recepção}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FilaAtendimentoRecepcao.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FilaAtendimentoRecepcao}
+\end{figure}
+
+A listagem exibida na figura \ref{fig:Captura-FilaAtendimentoRecepcao} é organizada de acordo com a ordem de chegada e o cidadão deixa de ser listado nela quando se concluem todos os serviços para o qual buscou atendimento.
+
+\section{Módulo da Triagem}
+
+Ao iniciar o módulo da Triagem o enfermeiro responsável visualiza a lista de cidadãos que aguardam este tipo de atendimento, organizada de acordo com a ordem de chegada. A figura \ref{fig:Captura-FilaAtendimentoTriagem} apresenta a fila de atendimentos do Módulo da Triagem.
+
+\begin{figure}[H]
+    \centering
+     \caption{Fila de Atedimento - Módulo da Triagem}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FilaAtendimentoTriagem.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FilaAtendimentoTriagem}
+\end{figure}
+
+Ao clicar no botão Escuta Inicial, mostrado na figura \ref{fig:Captura-FilaAtendimentoTriagem} é aberto o formulário de coleta de dados da escuta inicial do cidadão, mostrado na figura \ref{fig:Captura-FormularioTriagem01}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário Escuta Inicial}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioTriagem01.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioTriagem01}
+\end{figure}
+
+A partir deste formulário é possível preencher os campos sobre motivo da consulta, antropometria e sinais vitais, glicemia capilar, medicamentos em uso e alergias, hábitos, doenças crônicas e comorbidades além de ser permitido ao profissional de saúde selecionar a classificação de risco do cidadão avaliado, o que é mostrado na figura \ref{fig:Captura-FormularioTriagem02}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário Escuta Inicial - Classificação de Risco}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioTriagem02.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioTriagem02}
+\end{figure}
+
+Neste mesmo formulário ainda são adicionados os Procedimentos da Tabela SIGTAP realizados durante o atendimento, sendo que a adição de procedimentos já contidos no formulário é feita de forma automática, necessitando somente que se preencha o campo do procedimento e caso seja necessário, o profissional poderá adicionar outros procedimentos. A figura \ref{fig:Captura-FormularioTriagem03} apresenta a tabela de adição de procedimentos. Finalizando a etapa da escuta inicial o atendente poderá liberar ou encaminhar o cidadão para outro tipo de serviço.
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário Escuta Inicial - Adição de Procedimentos do SIGTAP}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioTriagem03.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioTriagem03}
+\end{figure}
+
+
+
+\section{Módulo do Atendimento Médico}
+
+O Módulo do Atendimento Médico permite ao profissional registrar as diferentes partes da consulta ambulatorial. A figura \ref{fig:Captura-FilaAtendimentoMedico} exibe a página inicial do módulo que contém a fila de atendimento.
+
+\begin{figure}[H]
+    \centering
+     \caption{Página Inicial - Módulo do Atendimento Médico}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FilaAtendimentoMedico.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FilaAtendimentoMedico}
+\end{figure}
+
+A fila de cidadãos exibida figura \ref{fig:Captura-FilaAtendimentoMedico}, diferentemente das mostradas nos módulos anteriores é organizada de acordo com a classificação de risco, ou seja, estão no topo da lista os pacientes que devido as complicações necessitam de menor tempo para serem atendidos.
+
+Ao clicar o botão realizar atendimento é aberto o formulário exibido na figura \ref{fig:Captura-FormularioAtendimentoMedico} que contém os campos em que se registram a história clínica do paciente, a avaliação do profissional e sua hipótese diagnóstica, bem como a tabela de adição dos procedimentos realizados na consulta.
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário - Módulo do Atendimento Médico}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioAtendimentoMedico.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioAtendimentoMedico}
+\end{figure}
+
+Através do menu lateral esquerdo mostrado na figura \ref{fig:Captura-FormularioAtendimentoMedico} o profissional pode consultar os dados da triagem do cidadão em atendimento conforme mostra a figura \ref{fig:Captura-DadosTriagemAtendimentoMedico}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Dados da Triagem}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-DadosTriagemAtendimentoMedico.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-DadosTriagemAtendimentoMedico}
+\end{figure}
+
+Neste módulo é permitido ainda o preenchimento e a impressão do Receituário com adição de medicamentos e orientações sobre o uso destes, de acordo com o mostrado na figura \ref{fig:Captura-ReceituarioAtendimentoMedico}. 
+
+\begin{figure}[H]
+    \centering
+     \caption{Receituário}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-ReceituarioAtendimentoMedico.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ReceituarioAtendimentoMedico}
+\end{figure}
+
+Uma amostra do receituário emitido e impresso pelo Sistema encontra-se disponível no \appendixautorefname{ B}.
+
+Ao finalizar o atendimento do cidadão neste módulo do Sistema, o profissional de saúde poderá encaminhá-lo a sala de administração de medicamentos, ou liberá-lo.
+
+\section{Módulo de Administração de Medicamentos}
+
+O Módulo de Administração de Medicamentos oferece ao profissional espaço para visualização da fila de atendimento, dos medicamentos prescritos, campo para a anotação de observações feitas no decorrer do atendimento e campo para confirmação da administração medicamentosa. As figuras \ref{fig:Captura-FormularioAdminDeMedicamentos01} e \ref{fig:Captura-FormularioAdminDeMedicamentos02} apresentam partes do formulário deste módulo:
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário do Módulo de Administração de Medicamentos}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioAdminDeMedicamentos01.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioAdminDeMedicamentos01}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+     \caption{Formulário do Módulo de Administração de Medicamentos}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-FormularioAdminDeMedicamentos02.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioAdminDeMedicamentos02}
+\end{figure}
+
+Este formulário também conta com seção para a adição de procedimentos, sendo permitido ao usuário liberar o cidadão ao término do atendimento ou adicioná-lo a fila de atendimentos novamente.
+
+\section{Módulo do Administrador}
+
+O ambiente do Módulo do Administrador entrega aos gestores do Hospital funcionalidades que envolvem desde o cadastro de profissionais no estabelecimento de saúde quanto a geração e/ou emissão de relatórios. A figura \ref{fig:Captura-PaginaInicialModuloAdministrador} exibe a página princial do Módulo do Administrador.
+
+\begin{figure}[H]
+    \centering
+     \caption{Página Principal do Módulo do Administrador}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-PaginaInicialModuloAdministrador.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-PaginaInicialModuloAdministrador}
+\end{figure}
+
+A partir da página principal exibida na figura \ref{fig:Captura-PaginaInicialModuloAdministrador}, o administrador pode acessar as funcionalidades de cadastros, consultas, geração do arquivo BPA e importação de dados através do menu lateral esquerdo. No centro da tela são exibidos cartões contendo dados gerais, do estabelecimento e estatísticas dos atendimentos do dia.
+
+Nos subtópicos seguintes serão apresentados detalhes das funcionalidades do Módulo do Administrador.
+
+\subsection{Cadastro Individual do Profissional}
+
+Uma das formas do gestor do estabelecimento de saúde realizar o cadastro de profissinais no SGH é através do cadastro individual do Profissional de Saúde, demonstrado na figura \ref{fig:Captura-CadastroProfissionalIndividual}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Cadastro Individual do Profissional}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-CadastroProfissionalIndividual.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-CadastroProfissionalIndividual}
+\end{figure}
+
+No formulário que pode ser acessado através do menu Cadastros são solicitadas informações dos dados pessoais, de documentação e de lotação do profissional.
+
+\subsection{Consultas}
+
+Ao acessar o menu Consultas, o usuário poderá optar por três tipos de consultas disponibilizadas pelo sistema: a consulta de profissionais, de atendimentos e de cidadãos cadastrados na base de dados. As figuras \ref{fig:Captura-ListagemDeProfissionais}, \ref{fig:Captura-ConsultaAtendimentos} e \ref{fig:Captura-ConsultaCidadaos} mostram respectivamente, estes formulários de pesquisa.
+
+\begin{figure}[H]
+    \centering
+     \caption{Consulta e Listagem de Profissionais}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-ListagemDeProfissionais.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ListagemDeProfissionais}
+\end{figure}
+Como é possível observar na figura \ref{fig:Captura-ListagemDeProfissionais}, em que é mostrada a listagem de profissionais, são permitidas duas ações ao usuário: detalhar e editar as informações de cadastro. Nesta tela ainda é possível pesquisar um profissional específico além de  ordenar a lista de acordo com o parâmetro escolhido.
+
+\begin{figure}[H]
+    \centering
+     \caption{Consulta de Atendimentos}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-ConsultaAtendimentos.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ConsultaAtendimentos}
+\end{figure}
+
+Na consulta de atendimentos exibida na figura \ref{fig:Captura-ConsultaAtendimentos} é possível realizar a pesquisa a partir de dois parâmetros: data - onde serão listados os atendimentos realizados em uma data específica - e período, em que serão listados os atendimentos do período selecionado.
+
+\begin{figure}[H]
+    \centering
+     \caption{Consulta de Cidadãos}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-ConsultaCidadaos.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ConsultaCidadaos}
+\end{figure}
+
+Já na figura \ref{fig:Captura-ConsultaCidadaos}, é exibida a tela de consultas de cidadãos, são aceitos três parâmetros para a pesquisa: CNS, CPF ou Nome do Cidadão.
+
+\subsection{Geração do Arquivo BPA}
+
+No menu Arquivo BPA o gestor possui as opções de gerar o arquivo BPA para importação ao SIA/SUS ou verficar a listagem de arquivos gerados e realizar o \textit{download} destes caso necessite. A figura \ref{fig:Captura-GeracaoBPA} apresenta o formulário de geração do arquivo BPA, onde o usuário informa o mês de competência da produção.
+
+\begin{figure}[H]
+    \centering
+     \caption{Geração do Arquivo BPA}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-GeracaoBPA.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-GeracaoBPA}
+\end{figure}
+
+A figura \ref{fig:Captura-ListagemBPA} exibe a tela que contém a listagem de arquivos de produção ambulatorial gerados e a opção de realizar \textit{download}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Listagem Arquivos BPA Gerados}
+    \includegraphics[scale=0.38]{img/capitulo5/fig:Captura-ListagemBPA.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ListagemBPA}
+\end{figure}
+
+O arquivo gerado para ser usado no SIA segue as especificações do padrão de exportação do software BPA-Magnético. A figura \ref{fig:Captura-ArquivoBPA} mostra o exemplo de um arquivo de produção ambulatorial gerado pelo Sistema de Gestão Hospitalar.
+
+\begin{figure}[H]
+    \centering
+     \caption{Arquivo BPA gerado pelo sistema}
+    \includegraphics[scale=0.65]{img/capitulo5/fig:Captura-ArquivoBPA.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-ArquivoBPA}
+\end{figure}
+
+Como mostrado na figura \ref{fig:Captura-ArquivoBPA} o arquivo de produção ambulatorial contém em suas linhas os dados dos procedimentos ambulatoriais realizados em um determinado período. Na linha iniciada com a numeração 01 são informados dados do estabalecimento de saúde, como CNES, CNPJ, dentre outros e nas linhas iniciadas com a numeração 03 são gravadas as informações do Boletim de Produção Ambulatorial Individualizado como o CNS do profissional e paciente e dados do procedimento realizado. Detalhes e maiores informações sobre a composição do arquivo poderão ser vistos no Anexo A, na seção de Anexos do trabalho.
+
+\subsubsection{Importação e validação do Arquivo BPA no SIA}
+Para realizar a importação e validação do arquivo BPA gerado pelo Sistema de Gestão Hospitalar no SIA realizou-se o atendimento simulado de três cidadãos fictícios. A tabela \ref{dadosValidacao} apresenta os dados e os procedimentos realizados nestes atendimentos.
+
+\begin{longtable}[c]{|p{15em}|p{20em}|}
+\caption{Dados para geração do Arquivo BPA\label{dadosValidacao}}
+\\
+
+\hline
+\textbf{Cidadão} & \textbf{Procedimentos realizados}\\
+\hline
+\endfirsthead
+\endhead
+\hline
+\endfoot
+\endlastfoot
+    \textbf{FRANCISCO LEANDRO DE MORAIS PINTO} &  \textbf{0301100039} - Aferição de Pressão Arterial;
+    \textbf{0301010030} - Consulta de Profissionais de Nível Superior (exceto Médico)\\
+    \hline
+    \textbf{SERGIO ARAUJO CORREIA DE LIMA} & \textbf{0301010064} - Consulta Médica em Atenção Básica;
+    \textbf{0301100039} - Aferição de Pressão Arterial;
+    \textbf{0214010015} - Glicemia Capilar; \textbf{0301010030} - Consulta de Profissionais de Nível Superior (exceto Médico) \\
+    \hline
+    \textbf{MARIA AUGUSTA SILVA} & \textbf{0301010064} - Consulta Médica em Atenção Básica;
+    \textbf{0301010030} - Consulta de Profissionais de Nível Superior (exceto Médico)\\
+    \hline
+\end{longtable}
+
+Após a realização dos atendimentos simulados no sistema, realizou-se a geração do arquivo BPA no módulo do administrador para a competência em que os procedimentos foram realizados, março de 2019, importando-se o arquivo para o SIA na funcionalidade de Importação de BPA, conforme mostrado na figura \ref{fig:Captura-MenuBPA-SIA}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Menu Importação de BPA - SIA}
+    \includegraphics[scale=0.90]{img/capitulo5/fig:Captura-MenuBPA-SIA.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-MenuBPA-SIA}
+\end{figure}
+
+Realizando a importação e leitura do arquivo BPA gerado pelo Sistema de Gestão Hospitalar, o SIA-SUS apresenta a mensagem de que o arquivo não contém rejeições, permitindo ao operador realizar o processamento dos dados conforme exibido na figura \ref{fig:Captura-MensagemSIA}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Menu Importação de BPA - SIA}
+    \includegraphics[scale=0.70]{img/capitulo5/fig:Captura-Sia-Mensagem.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-MensagemSIA}
+\end{figure}
+
+A partir desta etapa e ao seguir com a operação de importação dos dados do BPA no SIA foi registrado o relatório com a totalização dos procedimentos, exposto na figura \ref{fig:Captura-relatorio-SIA}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Totalização da Importação}
+    \includegraphics[scale=0.70]{img/capitulo5/fig:Captura-relatorio-SIA.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-relatorio-SIA}
+\end{figure}
+
+Como se pode observar na figura \ref{fig:Captura-relatorio-SIA}, o relatório da importação gerado pelo SIA contabilizou 9 registros lidos, dos quais 1 representa a linha do cabeçalho inicial, \textit{"header"} e os outros 8 correspondem aos 8 procedimentos realizados, sendo importante notar que destes nenhum foi rejeitado. 
+
+Logo, a partir do exposto, é possível verificar que o sistema gera de fato, um arquivo de exportação de dados das produções ambulatoriais compatível com o SIA/SUS, tal como definido nos objetivos do trabalho.
+
+
+\subsection{Importação do XML ESUS}
+
+A importação do XML ESUS é uma forma prática de realizar o cadastro dos profissionais lotados no estabelecimento de saúde, dado que este arquivo contém os dados pessoais, de documentação, de endereço e de lotação dos funcionários. A figura \ref{fig:Captura-FormularioXMLESUS} mostra o formulário de importação do XML ESUS.
+
+\begin{figure}[H]
+    \centering
+     \caption{Importação do XML ESUS}
+    \includegraphics[scale=0.45]{img/capitulo5/fig:Captura-FormularioXMLESUS.png}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:Captura-FormularioXMLESUS}
+\end{figure}
+
+Ao realizar o \textit{upload} do arquivo XML do ESUS no SGH e ao informar o CNES do estabelecimento, o sistema realiza o processamento dos dados do arquivo e os salva no Banco de Dados, reduzindo o tempo de cadastro dos profissionais de saúde, caso este fosse realizado individualmente. 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,204 @@
+\chapter{Desenvolvimento}
+
+Este capítulo apresenta a descrição do sistema desenvolvido bem como parte da documentação elaborada para o desenvolvimento do Sistema de Gestão Hospitalar.
+
+\section{DESCRIÇÃO DO SISTEMA}
+
+O Sistema de Gestão Hospitalar é um projeto voltado para Hospitais Públicos e focado no gerenciamento e interligação dos diversos setores que envolvem as consultas ambulatoriais destas Instituições de Saúde.
+Oferece módulos que permitem aos funcionários realizarem o acolhimento de pacientes, triagem com classificação de risco e consulta médica, englobando os processos e atividades do atendimento Ambulatorial.
+
+Também contempla a integração com os sistemas informatizados de coleta de dados do Sistema Único de Saúde (SUS), automatizando o envio de informações no que se refere as produções realizadas por períodos.
+
+O módulo de recepção propicia o cadastro dos pacientes acolhidos mediante consulta aos serviços \textit{web} disponibilizados pelo Ministério da Saúde através do Barramento CNS e os encaminha ao setor de triagem, responsável por registrar os sinais vitais e motivos de queixa dos pacientes.
+
+O módulo de Atendimento Médico permite ao profissional responsável prescrever de forma simplificada medicamentos, diagnósticos, observações e condutas pertinentes ao atendimento realizado, gerando um histórico de atendimento para consultas posteriores.
+
+
+
+\section{REQUISITOS FUNCIONAIS E NÃO-FUNCIONAIS}
+
+Os requisitos definem as necessidades que deverão ser supridas para resolver um determinado problema. Eles são importantes, pois fornecem aos desenvolvedores uma referência para avaliação do produto final. Na tabela \ref{requisitosFuncionais} a seguir são apresentados os requisitos funcionais utilizados na implementação deste software e posteriormente na tabela 2 são apresentados os requisitos não-funcionais.
+
+\begin{longtable}[c]{|p{4.715em}|p{12em}|p{8.07em}|p{8.07em}|}
+\caption{Requisitos funcionais.\label{requisitosFuncionais}}\\
+
+\hline
+\multicolumn{4}{| c |}{Início da Tabela}\\
+\hline
+\textbf{Código} & \textbf{Descrição} & \textbf{Entradas} & \textbf{Saídas}\\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{4}{|c|}{Continuação da Tabela \ref{requisitosFuncionais}}\\
+\hline
+\textbf{Código} & \textbf{Descrição} & \textbf{Entradas} & \textbf{Saídas}\\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\multicolumn{4}{| c |}{Fim da Tabela}\\
+\hline
+\endlastfoot
+    \textbf{RF001} & Autenticação – O sistema deverá possuir tela de autenticação que direcione o usuário para a página inicial conforme suas permissões. & CPF do usuário e senha. & Usuário autenticado. \\
+    \hline
+    \textbf{RF002} & Cadastro individual dos profissionais do Estabelecimento de Saúde. & Dados pessoais, de lotação e documentação do profissional. & Profissional (usuário) cadastrado no Sistema. \\
+    \hline
+    \textbf{RF003} & O Sistema deverá permitir a Leitura do Arquivo XML gerado pelo CNES e ao digitar o código do estabelecimento realizar o cadastro automático das informações deste e dos profissionais ali alocados. & Arquivo XML gerado pelo CNES. & Profissionais e dados do estabelecimento cadastrados. \\
+    \hline
+    \textbf{RF004} & Consulta e edição dos dados dos profissionais. & Parâmetro para consulta. & Resultados da consulta e/ou dados do profissional editado. \\
+    \hline
+    \textbf{RF005} & Geração de arquivo com os dados da produção ambulatorial para importação ao SIA. & Comando do profissional (Administrador). & Arquivo para importação dos dados ao SIA. \\
+    \hline
+    \textbf{RF006} & Leitura dos arquivos da Tabela de Procedimentos e OPM do SUS e armazenamento dos dados. & Arquivos da Tabela de Procedimentos e OPM do SUS. & Armazenamento das informações. \\
+    \hline
+    \textbf{RF007} & Coletar automaticamente dados dos cidadãos através do CNS ou CPF. & CNS ou CPF do Cidadão. & Dados do cidadão. \\
+    \hline
+    \textbf{RF008} & Visualização da fila de atendimentos para o profissional responsável pela Triagem. & Cidadãos para atendimento. & Fila de Atendimento. \\
+    \hline
+    \textbf{RF009} & Registrar dados da Triagem juntamente com a classificação de risco do cidadão. & Dados da triagem do cidadão e classificação de risco. & Armazenamento dos dados e classificação de rico. \\
+    \hline
+    \textbf{RF010} & Listagem da fila de cidadãos já atendidos pela triagem organizadas de acordo com a classificação de risco. & Cidadãos para atendimento. & Fila de Atendimento. \\
+    \hline
+    \textbf{RF011} & Registrar informações do atendimento médico. & Dados do Atendimento médico. & Armazenamento dos dados. \\
+    \hline
+    \textbf{RF012} & Permitir adição de procedimentos da Tabela de Procedimentos e OPM do SUS na Triagem, no Atendimento Médico e na Administração de Medicamentos  & Dados de procedimentos do SUS. & Relacionamento do atendimento com o(s) procedimento(s) realizado(s). \\
+    \hline
+    \textbf{RF013} & Registrar histórico do cidadão através do Prontuário Eletrônico  & Consultas e procedimentos & Prontuário Eletrônico do Cidadão. \\
+    \hline
+    \textbf{RF014} & Recuperação de senha & E-mail do usuário & Criação de nova senha \\
+\end{longtable}
+
+\begin{longtable}[c]{|p{4.715em}|p{29.5em}|}
+\caption{Requisitos não-funcionais.\label{requisitosNaoFuncionais}}
+\\
+
+\hline
+\textbf{Código} & \textbf{Descrição}\\
+\hline
+\endfirsthead
+\endhead
+\hline
+\endfoot
+\endlastfoot
+    \textbf{RNF001} & Uso de design responsivo nas interfaces gráficas.\\
+    \hline
+    \textbf{RNF002} & Interface clara e objetiva que permita ao usuário executar tarefas com pouco tempo de uso.\\
+    \hline
+    \textbf{RNF003} & Ser compatível com os navegadores Chrome, Firefox e Internet Explorer.\\
+    \hline
+    \textbf{RNF004} & Utilizar banco de dados relacional MySql.\\
+    \hline
+    \textbf{RNF005} & Ser desenvolvido com auxílio do Framework Spring Boot.\\
+    \hline
+\end{longtable}
+
+\section{DIAGRAMAS}
+
+Os diagramas são representações gráficas usadas para exibir esquemas simplificados sobre determinado conteúdo. A utilização de diagramas permite que se compreenda mais facilmente determinados processos. Nesse projeto, depois de adotado o tema discutido os requisitos funcionais e não funcionais do sistema, procedeu-se a confecção dos diagramas de caso de uso, diagrama Lógico do Banco de Dados, disponível no \appendixautorefname{ A} e diagrama da arquitetura do software.
+
+\subsection{\textbf{Diagrama de Caso de Uso}}
+
+Segundo \citeonline[p. 124]{uml}, um Diagrama de Caso de Uso ``descreve a relação entre atores e casos de utilização de um dado sistema. Este é um diagrama que permite dar uma visão global e de alto nível do sistema''. Na figura \ref{fig:CasoDeUso-Administrador}, é apresentado o Diagrama de Caso de Uso para o ator Administrador.
+
+\begin{figure}[H]
+    \centering
+     \caption{Diagrama de Casos de Uso – Administrador}
+    \includegraphics[scale=0.40]{img/capitulo4/fig:CasoDeUso-Administrador.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:CasoDeUso-Administrador}
+\end{figure}
+
+Como pode ser observado,  o administrador do Hospital é o ator responsável por manter os profissionais que trabalham no estabelecimento, seja por meio do cadastro individual ou por meio da leitura do arquivo XML do CNES, por gerar relatórios e o arquivo BPA para importação ao SIA e por manter atualizados os dados do estabelecimento. Na figura \ref{fig:CasoDeUso-Atendente}, é apresentado o Diagrama de Caso de Uso para o ator Atendente.
+
+\begin{figure}[H]
+    \centering
+     \caption{Diagrama de Casos de Uso – Atendente}
+    \includegraphics[scale=0.40]{img/capitulo4/fig:CasoDeUso-Atendente.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:CasoDeUso-Atendente}
+\end{figure}
+
+Para o atendente tem-se os casos de uso consultar os dados do cidadão através do Barramento CNS ou Base de Dados Local, incluir um cidadão na fila de atendimentos e visualizar o andamento desta.
+
+Na figura \ref{fig:CasoDeUso-Triagem} são exibidos os casos de uso para o ator enfermeiro.
+
+\begin{figure}[H]
+    \centering
+     \caption{Diagrama de Casos de Uso – Enfermeiro} 
+    \includegraphics[scale=0.4]{img/capitulo4/fig:CasoDeUso-Triagem.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:CasoDeUso-Triagem}
+\end{figure}
+
+Sob a ótica do enfermeiro, pode-se identificar as tarefas básicas executadas por este ator que são: visualizar a fila de atendimento,  registrar os dados da triagem (sinais vitais, avaliação antropométrica, glicemia, procedimentos etc.), classificar o risco do cidadão, adicionar o cidadão na fila de atendimento ou liberá-lo, nos casos em que ele não precise de outro tipo de serviço.  A figura \ref{fig:CasoDeUso-Medico}, exibe os casos de uso para o ator médico.
+
+\begin{figure}[H]
+    \centering
+     \caption{Diagrama de Casos de Uso – Médico}
+    \includegraphics[scale=0.4]{img/capitulo4/fig:CasoDeUso-Medico.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:CasoDeUso-Medico}
+\end{figure}
+
+Para o ator médico são elencados os cenários de visualizar a fila de atendimentos, visualizar o histórico do cidadão (PEP), prescrever medicamentos, registrar dados da consulta ambulatorial (história clínica, procedimentos, etc.) e incluir o cidadão na fila de atendimento ou liberá-lo caso seja necessário. Na visão do ator técnico são definidos os casos de uso mostrados na figura \ref{fig:CasoDeUso-Tecnico.jpg}.
+
+\begin{figure}[H]
+    \centering
+     \caption{Diagrama de Casos de Uso – Técnico}
+    \includegraphics[scale=0.4]{img/capitulo4/fig:CasoDeUso-Tecnico.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:CasoDeUso-Tecnico.jpg}
+\end{figure}
+
+Os principais casos de uso do ator técnico são: Visualizar a fila de atendimentos, visualizar a prescrição de medicamentos (receituário), confirmar a administração de medicamentos e a partir disto liberar ou adicionar o cidadão a fila de atendimentos.
+
+\subsection{\textbf{Diagrama da Arquitetura do Sistema}}
+
+Conforme \citeonline[p. 103]{SOMMERVILE}, a arquitetura do sistema se preocupa com a ``compreensão de como um sistema deve ser organizado e com a estrutura geral desse sistema''. Logo a representação da arquitetura de um software é essencial para a análise e descrição das propriedades de alto nível de um projeto. Na figura \ref{fig:ArquiteturaSGH} a seguir é apresentado uma visão geral da arquitetura proposta para o Sistema de Gestão Hospitalar:
+
+\begin{figure}[H]
+    \centering
+     \caption{Arquitetura do Sistema}
+    \includegraphics[scale=0.6]{img/capitulo4/fig:ArquiteturaSGH.jpg}
+    \legend{Fonte: Elaborado pelo autor, 2020}
+    \label{fig:ArquiteturaSGH}
+\end{figure}
+
+A seguir serão descritos os passos apresentados na figura \ref{fig:ArquiteturaSGH}:
+
+\begin{enumerate}
+	\item O usuário acessa o sistema através do navegador e este por sua vez realiza uma requisição utilizando o protocolo \textit{HTTP} ao servidor da aplicação;
+	\item O \textit{Front Controller} recebe a requisição e a direciona ao controlador adequado;
+	\item O Controlador se conecta a camada de Serviço;
+	\item Caso necessário, a camada de serviço realiza a requisição ao barramento de integração do CNS através do protocolo HTTP;
+	\item O barramento de Integração do CNS solicita a informação a base de dados do Cadsus;
+	\item A base de dados do CADSUS retorna a informação solicitada;
+	\item O barramento de integração do CNS retorna a camada de serviço, através do serviço \textit{web} SOAP, um arquivo XML com a resposta;
+	\item A camada de serviço acessa a interface do Repositório JPA;
+	\item A interface do Repositório JPA se comunica com a camada de negócios (modelo);
+	\item A interface do Reposítório JPA persiste as informações ou realiza consultas no Banco de Dados \textit{MySQL};
+	\item O repositório JPA, em caso de consulta, retorna as informações para a camada de serviço;
+	\item A camada de serviço retorna a informação para o controlador;
+	\item As informações repassadas pelo controlador retornam ao \textit{Front Controller};
+	\item O \textit{Front Controller} se comunica com a camade de visão;
+	\item A camada de visão retorna as informações solicitadas para o usuário por meio da Linguagem de Marcação de Texto (HTML).
+\end{enumerate}
+
+Conforme pode ser observado na figura \ref{fig:ArquiteturaSGH}, por utilizar o Framework Spring, o sistema é construído com base no padrão arquitetural MVC. Uma outra característica do Spring é a utilização do \textit{Front Controller}, este por sua vez tem o papel de receber as requisições e direciona-las ao controlador apropriado.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+\chapter{Introdução}
+%\addcontentsline{toc}{chapter}{Introdução}
+%
+O Sistema Único de Saúde do Brasil (SUS), criado pela Constituição Federal de 1988 e regulamentado pela lei nº 8.080/90, contempla um modelo único de gestão e oferta universalizada de ações e serviços de saúde a população. Por abranger um país de grande extensão territorial a alta demanda e o trabalho burocrático tornam o sistema menos efetivo e eficiente, atingindo desde pequenos municípios a grandes centros com falhas que envolvem falta de informações, erros de interpretações, desorganização do fluxo de atendimento e trabalho o que somados causam demora no atendimento.
+
+No tocante aos estabelecimentos de assistência à saúde, os hospitais públicos também sofrem com os problemas relatados por terem parte dos seus processos realizados de forma manual, com o preenchimento de diversas guias de papel para posterior alimentação dos Sistemas de Informação em Saúde (SIS) disponibilizados pelo Ministério da Saúde. A grande quantidade de papéis a serem preenchidos acaba se tornando uma barreira para o trabalhador e cidadãos usuários, uma vez que não garantem a centralidade, segurança e integridade das informações e dificultam as tomadas de decisões de gestores desses espaços.
+
+Nesse contexto, é pertinente notar a necessidade de implementação de sistemas computacionais que ajudem na assistência e gestão desses estabelecimentos e que ao se comunicarem com os SIS já existentes possam contribuir para a melhoria dos processos e auxiliar gestores, profissionais e usuários, dado que esse tipo de software tem trazido melhorias na qualidade e presteza dos serviços, eliminando trabalhos redundantes e melhorando o atendimento, com respostas em tempo real. \cite{martinselaugeni}.
+
+Diante do exposto, este trabalho apresenta como proposta o desenvolvimento de um Sistema de Gestão Hospitalar, capaz de oferecer uma interligação entre diferentes setores de um hospital público onde se realizam os procedimentos ambulatoriais, e que permita a conexão com os serviços web do Cadastro Nacional de Usuários do SUS (CADSUS) e a geração de arquivo compatível com o Sistema de Informações Ambulatoriais do SUS (SIA/SUS), eliminando a necessidade de digitação dos dados de produção ambulatorial no programa BPA-MAGNÉTICO.
+
+\section{Objetivo geral}
+ Desenvolver o Módulo de Informações Ambulatoriais de um Sistema de Gestão Hospitalar a fim de integrar e melhorar processos da recepção, triagem, consulta médica e administração de medicamentos buscando o aperfeiçoamento do atendimento e colaborando com a gestão e administração dos hospitais.
+ 
+\section{Objetivos específicos}
+\begin{itemize}
+     \item Analisar e elencar os requisitos funcionais e não funcionais do sistema para a construção de sua arquitetura, modelagem de casos de uso e de classes;
+    \item Estudar e aplicar os conceitos do paradigma da Programação Orientada a Objetos, do Framework Spring Boot e do Banco de Dados Relacional;
+	\item Estudar e aplicar os conceitos de sistemas distribuídos quanto a sua integração com outros sistemas através de serviços web;
+	\item Desenvolver um sistema web de acordo com a modelagem e necessidades levantadas na fase de construção dos requisitos;
+	\item Automatizar a geração do arquivo dos dados de produção ambulatorial para importação no SIA, eliminando a necessidade de digitação destes no BPA-MAGNÉTICO; 
+	 
+
+\end{itemize}
+
+\section{Justificativa}
+O fluxo de atendimento do cidadão nos hospitais é regido por um conjunto de leis e normas que promovem a segurança e integridade dos pacientes e o controle financeiro dos recursos materiais e humanos usados para tal fim. Diante disso, o poder público criou diversas ferramentas com o objetivo de analisar as situações individuais e coletivas de saúde, sendo a apropriação das informações geradas por elas ``de extrema importância para que o gerenciamento, alocação e gasto dos recursos públicos em todos os níveis de atenção do sistema de saúde no País sejam feitos com parâmetros confiáveis''. \cite[p. 757]{neves}.
+
+O SIA-SUS, que faz parte desse conjunto de ferramentas, realiza o processamento das contas ambulatoriais do SUS e apesar dos benefícios e da importância desse sistema de coleta, o que se observa na prática é que o envio de dados para processamento torna-se uma atividade dispendiosa para os gestores e funcionários públicos que necessitam dedicar parte do tempo de seu trabalho analisando as guias de papel dos boletins de produção ambulatorial escritos nos estabelecimentos de saúde, para sua posterior digitação no BPA-MAGNÉTICO, \textit{software} disponibilizado pelo governo para a digitação do Boletim de Produção Ambulatorial (BPA) nos seus tipos individualizado e consolidado e geração do arquivo de importação para o SIA.
+
+Cabe-se notar que a digitação realizada por esses profissionais ocorre de forma manual, uma vez que, antes de repassarem os dados ao BPA-MAGNÉTICO é necessário verificar se os elementos preenchidos previamente pelos funcionários do Hospital atendem as especificações do Sistema de Gerenciamento da Tabela de Procedimentos, Órteses, Próteses e Medicamentos do SUS (SIGTAP/SUS) que estabelece um código único para cada tipo de procedimento custeado pelo SUS, seu valor, a sua relação com o profissional que o executa, o tipo de instrumento de coleta de dados, entre outros. Ou seja, deve-se averiguar se o profissional que efetuou o procedimento preencheu a guia do BPA com o código do procedimento correspondente aos que são permitidos para a sua ocupação e se esses dados devem fazer parte do BPA Individualizado e/ou do BPA Consolidado, para a partir disto, digitar as produções ambulatoriais no BPA-MAGNÉTICO e gerar o arquivo para ser processado no SIA.
+
+Diante da descentralização e do uso de vários sistemas, podem ocorrer erros no preenchimento das Guias do BPA e problemas de comunicação quando estes dados são repassados do hospital para a Secretaria de Saúde ou para o responsável pela digitação, o que pode acarretar erro no processamento e validação dos dados quando estes são submetidos ao SIA.
+
+Um outro ponto a ser observado é o fato de que os dados do Prontuário do Paciente armazenados em pastas e folhas de papel manuscrito correm o risco de se deteriorarem com o passar do tempo. Esse tipo de registro também está mais suscetível a erros, falhas humanas ou ilegibilidade das informações. \citeonline{tanji2004importancia} observa que frequentemente ocorrem incorreções ou omissões nos registros de prontuário que vão desde a falhas gramaticais e ortográficas, a distorções nas informações provocadas pelo emprego dos termos em geral. Nesse mesmo sentido, ainda complementa que a legibilidade e correta compreensão dos registros retratam a qualidade do serviço prestado e auxiliam em questões ético-legais.
+
+Logo, um sistema que garanta a unificação das informações de atendimento ao paciente desde a recepção, até a sua saída da unidade hospitalar, permitirá aos gestores um maior controle do que ocorre no estabelecimento em tempo real e auxiliará funcionários e médicos nas atividades cotidianas reduzindo o tempo que era gasto em tarefas manuais e automatizando processos que exigiam maior período de tempo.
+Diante disso, o desenvolvimento do Sistema de Gestão Hospitalar se justifica, pois contribuirá de forma significativa na administração dos hospitais, garantindo fidedignidade na coleta de dados do paciente, o armazenamento de informações no Prontuário Eletrônico e a eliminação da necessidade de se digitar as informações dos atendimentos no BPA-MAGNÉTICO, visto que o sistema será capaz de gerar o arquivo para importação dos dados no SIA, agilizando o envio mensal dos dados de produção ambulatorial.
+
+
